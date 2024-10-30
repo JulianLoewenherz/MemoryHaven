@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/second"
+    tools:context=".SecondActivity"
+    android:background="@color/white">
+
+
+
+
+
+    <ScrollView
+        android:id="@+id/verricalScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="750dp"
+        android:overScrollMode="never"
+        android:scrollbars="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="66dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="Welcome Back"
+                android:textColor="@color/black"
+                android:textSize="40dp"
+                android:textStyle="bold">
+
+            </TextView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="2in"
+                android:layout_height="1.5in"
+                android:layout_margin="5dp"
+                android:layout_gravity="center"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="5dp">
+                <ImageView
+                    android:layout_width="2in"
+                    android:layout_height="2in"
+                    android:layout_gravity="center"
+                    android:src="@drawable/lake">
+                </ImageView>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="2in"
+                android:layout_height="1.5in"
+                android:layout_margin="5dp"
+                android:layout_gravity="center"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="5dp">
+                <ImageView
+                    android:layout_width="2in"
+                    android:layout_height="2in"
+                    android:layout_gravity="center"
+                    android:src="@drawable/mountain1">
+                </ImageView>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="2in"
+                android:layout_height="1.5in"
+                android:layout_margin="5dp"
+                android:layout_gravity="center"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="5dp">
+                <ImageView
+                    android:layout_width="2in"
+                    android:layout_height="2in"
+                    android:layout_gravity="center"
+                    android:src="@drawable/river">
+                </ImageView>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="2in"
+                android:layout_height="1.5in"
+                android:layout_margin="5dp"
+                android:layout_gravity="center"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="5dp">
+                <ImageView
+                    android:layout_width="2in"
+                    android:layout_height="2in"
+                    android:layout_gravity="center"
+                    android:src="@drawable/trees">
+                </ImageView>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="2in"
+                android:layout_height="1.5in"
+                android:layout_margin="5dp"
+                android:layout_gravity="center"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="5dp">
+                <ImageView
+                    android:layout_width="2in"
+                    android:layout_height="2in"
+                    android:layout_gravity="center"
+                    android:src="@drawable/sky">
+                </ImageView>
+            </androidx.cardview.widget.CardView>
+
+
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="600dp"
+        android:background="@color/white"
+        app:labelVisibilityMode="labeled"
+        android:layout_gravity="bottom"
+        app:menu="@menu/bottom_nav_menu" />
+
+
+</FrameLayout>
