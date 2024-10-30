@@ -1,2 +1,2 @@
 # MemoryHaven
-#changed by Mckenzie
+# CMPT 276 Project
