@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
                 // successful, otherwise login failed
                 if (emailaddress.getText().toString().equals("admin") && password.getText().toString().equals("admin")) {
                     //correct
-                    Toast.makeText(MainActivity.this, "TESTING COMMMIT", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "LOGIN SUCCESS", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(MainActivity.this, SecondActivity.class);
                     startActivity(intent);
                 } else {
@@ -61,13 +61,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-        
-      
-
-
-
-
-
 
 
 

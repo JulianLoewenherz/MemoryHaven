@@ -23,6 +23,7 @@ import com.example.projectprototype.databinding.ActivityArchiveBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class ArchiveActivity extends AppCompatActivity {
+    // The archive page
     ActivityArchiveBinding binding;
     GridView gridView;
 
@@ -47,18 +48,19 @@ public class ArchiveActivity extends AppCompatActivity {
 
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setOnNavigationItemSelectedListener((item)->{
-            if(item.getItemId() == R.id.nav_home){
+            if(item.getItemId() == R.id.nav_home){ //if user click home icon, then switch to home screen
                 Intent intent = new Intent(ArchiveActivity.this, SecondActivity.class);
                 startActivity(intent);
-            } else if (item.getItemId() == R.id.nav_profile) {
+            } else if (item.getItemId() == R.id.nav_profile) { //if user click profile icon, then switch to profile screen
                 Intent intent = new Intent(ArchiveActivity.this,ProfileActivity.class);
                 startActivity(intent);
-            } else if (item.getItemId() == R.id.nav_upload) {
+            } else if (item.getItemId() == R.id.nav_upload) { //if user click upload icon, then switch to upload screen
                 Intent intent = new Intent(ArchiveActivity.this, UploadActivity.class);
                 startActivity(intent);
             }
             return true;
         });
+
 
 
     }
