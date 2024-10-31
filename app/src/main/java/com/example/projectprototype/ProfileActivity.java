@@ -13,16 +13,37 @@ import com.example.projectprototype.databinding.ActivityArchiveBinding;
 import com.example.projectprototype.databinding.ActivityProfileBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import com.example.projectprototype.databinding.ActivityProfileBinding;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 public class ProfileActivity extends AppCompatActivity {
 
-    ActivityProfileBinding binding;
+    private ActivityProfileBinding binding;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
+
+        //initializing view binding
         binding = ActivityProfileBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        //initialize firebase authentication
+        mAuth = FirebaseAuth.getInstance();
+
+        // Get the current user
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+
+
+        //display uerserID
+        String userId = currentUser.getUid();
+        binding.userIdTextView.setText("User ID: " + userId);
+
+        //set up bottom navigation
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setOnNavigationItemSelectedListener((item)->{
             if(item.getItemId() == R.id.nav_home){ //if user click profile icon, switch to profile page

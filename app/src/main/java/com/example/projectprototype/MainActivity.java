@@ -1,76 +1,74 @@
 package com.example.projectprototype;
 
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
-import androidx.activity.EdgeToEdge;
-
 import androidx.appcompat.app.AppCompatActivity;
 
-
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.android.material.button.MaterialButton;
-
 
 public class MainActivity extends AppCompatActivity {
 
-    // The Login Page
-    // delete the forgot password and remember me
-    // Create another page for family and friends
-    // Archive - grid view, search bar
-    private Button login;
-
+    private FirebaseAuth mAuth;
+    private EditText emailaddress, password;
+    private MaterialButton login;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-        TextView emailaddress = (TextView) findViewById(R.id.emailaddress);
-        TextView password = (TextView) findViewById(R.id.password);
-        TextView btn = findViewById(R.id.textViewSignUp);
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) { //when user click on the "Sign up" then switch to register page
-                startActivity(new Intent(MainActivity.this,RegisterActivity.class));
 
-            }
-        });
+        // Initialize Firebase Auth
+        mAuth = FirebaseAuth.getInstance();
 
-
-
+        // Initialize views
+        emailaddress = findViewById(R.id.emailaddress);
+        password = findViewById(R.id.password);
         login = findViewById(R.id.loginbtn);
-        login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) { //after user type in username and password, and press login button, if the password is correct, then login
-                // successful, otherwise login failed
-                if (emailaddress.getText().toString().equals("admin") && password.getText().toString().equals("admin")) {
-                    //correct
-                    Toast.makeText(MainActivity.this, "TEST3", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(MainActivity.this, SecondActivity.class);
-                    startActivity(intent);
-                } else {
-                    //incorrect
-                    Toast.makeText(MainActivity.this, "LOGIN FAILED !!!", Toast.LENGTH_SHORT).show();
-                }
+        TextView btnSignUp = findViewById(R.id.textViewSignUp);
 
+        // Set up "Sign Up" button to navigate to RegisterActivity
+        btnSignUp.setOnClickListener(v ->
+                startActivity(new Intent(MainActivity.this, RegisterActivity.class))
+        );
+
+        // Set up login button click event
+        login.setOnClickListener(v -> {
+            String email = emailaddress.getText().toString().trim();
+            String pass = password.getText().toString().trim();
+
+            // Check if fields are empty
+            if (email.isEmpty() || pass.isEmpty()) {
+                Toast.makeText(MainActivity.this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
+                return;
             }
+
+            // Attempt to log in the user
+            loginUser(email, pass);
         });
-        
-      
+    }
 
+    private void loginUser(String email, String password) {
+        mAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, task -> {
+                    if (task.isSuccessful()) {
+                        // Login successful
+                        FirebaseUser user = mAuth.getCurrentUser();
+                        Toast.makeText(MainActivity.this, "Login successful!", Toast.LENGTH_SHORT).show();
 
-
-
-
-
-
-
+                        // Proceed to the next activity
+                        startActivity(new Intent(MainActivity.this, SecondActivity.class));
+                        finish();  // Finish this activity so it can't be returned to with back button
+                    } else {
+                        // Login failed
+                        Toast.makeText(MainActivity.this, "Login failed: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
 }
-
