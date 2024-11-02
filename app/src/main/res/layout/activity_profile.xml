@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,34 +8,184 @@
     tools:context=".ProfileActivity">
 
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="26dp"
-        android:text="Profile"
-        android:textStyle="bold"
-        android:textColor="@color/black"
-        android:layout_gravity="center"/>
 
-    <!-- Added user ID space in the profile -->
+
+    <ImageView
+        android:layout_width="101dp"
+        android:layout_height="82dp"
+        android:layout_marginTop="4dp"
+        android:src="@drawable/profile_icon"
+        app:layout_constraintBottom_toTopOf="@+id/titlename"
+        app:layout_constraintEnd_toEndOf="@+id/titlename"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="@+id/titlename"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.765" />
+
+
     <TextView
-        android:id="@+id/userIdTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="100dp"
-        android:text="User ID: "
-        android:textSize="18sp"
-        android:textColor="@color/black" />
+        android:id="@+id/titlename"
+        android:layout_width="394dp"
+        android:layout_height="56dp"
+        android:gravity="center"
+        android:text="Profile"
+        android:textColor="@color/black"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.47"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.336">
+
+
+
+
+    </TextView>
+
+
+    <EditText
+        android:id="@+id/inputEmail"
+        android:layout_width="373dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="48dp"
+        android:background="@drawable/input_bg"
+        android:drawableLeft="@drawable/email_icon"
+        android:ems="10"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:paddingLeft="20dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:text=""
+        android:textColorHint="@color/black"
+        app:layout_constraintStart_toStartOf="@+id/titlename"
+        app:layout_constraintTop_toBottomOf="@+id/titlename">
+
+
+
+
+    </EditText>
+
+
+    <EditText
+        android:id="@+id/inputPassword"
+        android:layout_width="373dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="12dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:hint="******"
+        android:textColorHint="@color/black"
+        android:background="@drawable/input_bg"
+        android:paddingLeft="20dp"
+        android:paddingTop="10dp"
+        android:layout_marginRight="10dp"
+        android:paddingBottom="10dp"
+        android:drawableLeft="@drawable/security_icon"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="@+id/inputEmail"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/inputEmail"
+        app:layout_constraintTop_toBottomOf="@+id/inputEmail">
+
+
+
+
+    </EditText>
+
+
+
+
+    <EditText
+        android:id="@+id/inputConfirmPassword"
+        android:layout_width="373dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="15dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:hint="******"
+        android:textColorHint="@color/black"
+        android:background="@drawable/input_bg"
+        android:paddingLeft="20dp"
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+        android:drawableLeft="@drawable/security_icon"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="@+id/inputPassword"
+        app:layout_constraintStart_toStartOf="@+id/inputPassword"
+        app:layout_constraintTop_toBottomOf="@+id/inputPassword" >
+
+
+
+
+    </EditText>
+
+
+
+
+    <EditText
+        android:id="@+id/inputJoinCode"
+        android:layout_width="373dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/input_bg"
+        android:drawableLeft="@drawable/code_icon"
+        android:ems="10"
+        android:hint="Join Code"
+        android:inputType="text"
+        android:paddingLeft="20dp"
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+        android:text=""
+        android:textColorHint="@color/black"
+        app:layout_constraintEnd_toEndOf="@+id/inputConfirmPassword"
+        app:layout_constraintStart_toStartOf="@+id/inputConfirmPassword"
+        app:layout_constraintTop_toBottomOf="@+id/inputConfirmPassword">
+
+
+
+
+    </EditText>
+
+
+
+
+    <Button
+        android:id="@+id/resetPasswordButton"
+        android:layout_width="360dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="30dp"
+        android:backgroundTint="@color/orange"
+        android:text="Reset Password"
+        android:textSize="25dp"
+        app:layout_constraintEnd_toEndOf="@+id/inputJoinCode"
+        app:layout_constraintStart_toStartOf="@+id/inputJoinCode"
+        app:layout_constraintTop_toBottomOf="@+id/inputJoinCode">
+
+
+    </Button>
+
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="600dp"
+        android:layout_gravity="bottom"
+        android:layout_marginTop="84dp"
         android:background="@color/white"
         app:labelVisibilityMode="labeled"
-        android:layout_gravity="bottom"
+        app:layout_constraintEnd_toEndOf="@+id/resetPasswordButton"
+        app:layout_constraintHorizontal_bias="0.509"
+        app:layout_constraintStart_toStartOf="@+id/resetPasswordButton"
+        app:layout_constraintTop_toBottomOf="@+id/resetPasswordButton"
         app:menu="@menu/bottom_nav_menu" />
 
-</FrameLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

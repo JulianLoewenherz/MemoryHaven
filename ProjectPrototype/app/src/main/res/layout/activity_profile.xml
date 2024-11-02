@@ -8,23 +8,33 @@
     tools:context=".ProfileActivity">
 
 
+    <ImageView
+        android:layout_width="101dp"
+        android:layout_height="82dp"
+        android:layout_marginTop="4dp"
+        android:src="@drawable/profile_icon"
+        app:layout_constraintBottom_toTopOf="@+id/titlename"
+        app:layout_constraintEnd_toEndOf="@+id/titlename"
+        app:layout_constraintStart_toStartOf="@+id/titlename"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
-        android:id="@+id/profile"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:id="@+id/titlename"
+        android:layout_width="394dp"
+        android:layout_height="56dp"
         android:gravity="center"
-        android:text="Profile"
-        android:textStyle="bold"
-        android:textSize="50dp"
+        android:text="Username"
         android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.47"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.085">
-    </TextView>
+        app:layout_constraintVertical_bias="0.241">
 
+    </TextView>
 
     <EditText
         android:id="@+id/inputUsername"
@@ -42,8 +52,8 @@
         android:paddingBottom="10dp"
         android:drawableLeft="@drawable/person_icon"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/profile"
-        app:layout_constraintTop_toBottomOf="@+id/profile" >
+        app:layout_constraintStart_toStartOf="@+id/titlename"
+        app:layout_constraintTop_toBottomOf="@+id/titlename" >
 
     </EditText>
 
