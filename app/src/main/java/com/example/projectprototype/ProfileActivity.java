@@ -42,9 +42,7 @@ public class ProfileActivity extends AppCompatActivity {
     private ActivityProfileBinding binding;
     private FirebaseAuth mAuth;
     private DatabaseReference databaseReference;
-    EditText profileUsername, profileEmail, profilePassword, profileConfirmpassword;
-    TextView titleName;
-
+   
 
 
 
